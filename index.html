@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weekly Timetable của Đại Ca</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111830;
+      --text:#eaf1ff;
+      --muted:#a8b3cf;
+      --line:#24304f;
+      --school:#3aa8ff;
+      --project:#ff8a3d;
+      --ielts:#ff4d6d;
+      --workout:#38d39f;
+      --flute:#b067ff;
+      --chill:#f5c84c;
+      --commute:#7dd3fc;
+      --lunch:#7be495;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --highlight:#2e3c72;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 800px at 20% -10%, #17203f 0%, transparent 60%),
+                  radial-gradient(1200px 800px at 120% 10%, #1a2142 0%, transparent 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+    header{max-width:1100px; margin:32px auto 12px; padding:0 16px}
+    h1{font-size:clamp(24px, 3vw, 36px); margin:0 0 6px}
+    .sub{color:var(--muted); font-size:14px}
+    .legend{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .tag{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#0e1530; color:var(--muted); border:1px solid var(--line)}
+    .dot{width:10px; height:10px; border-radius:50%}
+    .grid{max-width:1100px; margin:18px auto 40px; padding:0 16px; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
+    .day{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); transition:background .3s}
+    .day header{padding:16px 18px; border-bottom:1px solid var(--line)}
+    .day h2{font-size:18px; margin:0}
+    .content{padding:12px 18px 18px}
+    .slot{display:flex; gap:10px; padding:8px 0; border-bottom:1px dashed rgba(255,255,255,.06)}
+    .slot:last-child{border-bottom:none}
+    .time{min-width:118px; color:var(--muted)}
+    .label{flex:1}
+    .badge{display:inline-block; padding:2px 8px; border-radius:8px; font-size:12px; font-weight:600; color:#0b1020}
+    .b-school{background:var(--school)}
+    .b-project{background:var(--project)}
+    .b-ielts{background:var(--ielts)}
+    .b-workout{background:var(--workout)}
+    .b-flute{background:var(--flute)}
+    .b-chill{background:var(--chill)}
+    .b-commute{background:var(--commute)}
+    .b-lunch{background:var(--lunch)}
+    .highlight{background:var(--highlight) !important; box-shadow:0 0 15px rgba(58,168,255,0.4)}
+    footer{max-width:1100px; margin:0 auto 60px; padding:0 16px; color:var(--muted)}
+    .actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+    button{background:#18254a; color:#eaf1ff; border:1px solid var(--line); padding:10px 14px; border-radius:12px; cursor:pointer}
+    button:hover{background:#1d2b59}
+    @media print{.actions{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Weekly Timetable của Đại Ca</h1>
+    <div class="sub">Ngủ ~23:00 (có thể 24:00). Thứ 2 & 6 dậy 06:00; các ngày khác dậy 07:00. Sau khi dậy có <b>vệ sinh cá nhân 15’</b> trước khi học/code. Chill tối rút còn ~1h. Thêm khung <b>22:00–23:00</b> chuẩn bị đi ngủ. Ngày hiện tại sẽ được highlight.</div>
+    <div class="legend">
+      <span class="tag"><span class="dot" style="background:var(--school)"></span>Trường</span>
+      <span class="tag"><span class="dot" style="background:var(--project)"></span>Project / Code</span>
+      <span class="tag"><span class="dot" style="background:var(--ielts)"></span>IELTS</span>
+      <span class="tag"><span class="dot" style="background:var(--workout)"></span>Thể dục</span>
+      <span class="tag"><span class="dot" style="background:var(--flute)"></span>Thổi sáo</span>
+      <span class="tag"><span class="dot" style="background:var(--chill)"></span>Xem phim / Chill</span>
+      <span class="tag"><span class="dot" style="background:var(--commute)"></span>Di chuyển</span>
+      <span class="tag"><span class="dot" style="background:var(--lunch)"></span>Ăn & Nghỉ / Routine</span>
+    </div>
+  </header>
+
+  <section class="grid">
+    <!-- Thứ 2 -->
+    <article class="day"><header><h2>Thứ 2</h2></header><div class="content">
+      <div class="slot"><div class="time">06:00–06:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">06:15–06:45</div><div class="label">Ăn sáng <span class="badge b-lunch">Ăn</span></div></div>
+      <div class="slot"><div class="time">06:45–10:30</div><div class="label">Học ở trường <span class="badge b-school">Trường</span></div></div>
+      <div class="slot"><div class="time">10:30–10:45</div><div class="label">Về nhà <span class="badge b-commute">Di chuyển</span></div></div>
+      <div class="slot"><div class="time">10:45–11:30</div><div class="label">Ăn trưa + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">11:30–12:30</div><div class="label">Code / project nhẹ <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">13:00–16:45</div><div class="label">Học ở trường <span class="badge b-school">Trường</span></div></div>
+      <div class="slot"><div class="time">16:45–17:00</div><div class="label">Về nhà <span class="badge b-commute">Di chuyển</span></div></div>
+      <div class="slot"><div class="time">17:00–17:15</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">17:15–18:00</div><div class="label">Thổi sáo <span class="badge b-flute">Thổi sáo</span></div></div>
+      <div class="slot"><div class="time">18:00–20:00</div><div class="label">Làm project / code <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">20:00–22:00</div><div class="label">Luyện IELTS <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+
+    <!-- Thứ 3 -->
+    <article class="day"><header><h2>Thứ 3</h2></header><div class="content">
+      <div class="slot"><div class="time">07:00–07:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">07:15–09:30</div><div class="label">Làm project chính <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">09:30–11:30</div><div class="label">Học kiến thức code mới <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">11:30–12:15</div><div class="label">Ăn + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">12:15–12:50</div><div class="label">Code ngắn / ôn thuật toán <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">13:00–16:45</div><div class="label">Học ở trường <span class="badge b-school">Trường</span></div></div>
+      <div class="slot"><div class="time">16:45–17:00</div><div class="label">Về nhà <span class="badge b-commute">Di chuyển</span></div></div>
+      <div class="slot"><div class="time">17:00–17:15</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">17:15–18:00</div><div class="label">Thổi sáo <span class="badge b-flute">Thổi sáo</span></div></div>
+      <div class="slot"><div class="time">18:00–21:00</div><div class="label">IELTS tự học <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">21:00–22:00</div><div class="label">Xem phim / chill (ngắn) <span class="badge b-chill">Chill</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+
+    <!-- Thứ 4 -->
+    <article class="day"><header><h2>Thứ 4</h2></header><div class="content">
+      <div class="slot"><div class="time">07:00–07:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">07:15–09:30</div><div class="label">Làm project <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">09:30–11:30</div><div class="label">Luyện thuật toán / code skill <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">11:30–12:15</div><div class="label">Ăn + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">12:15–12:50</div><div class="label">Code ngắn / ôn project <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">13:00–17:40</div><div class="label">Học ở trường <span class="badge b-school">Trường</span></div></div>
+      <div class="slot"><div class="time">17:40–17:55</div><div class="label">Về nhà <span class="badge b-commute">Di chuyển</span></div></div>
+      <div class="slot"><div class="time">17:55–18:10</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">18:10–21:00</div><div class="label">IELTS online <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">21:00–22:00</div><div class="label">Chill nhẹ <span class="badge b-chill">Chill</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+
+    <!-- Thứ 5 -->
+    <article class="day"><header><h2>Thứ 5</h2></header><div class="content">
+      <div class="slot"><div class="time">07:00–07:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">07:15–09:30</div><div class="label">Project chính <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">09:30–11:30</div><div class="label">Học framework/API/DB <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">11:30–12:15</div><div class="label">Ăn + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">12:15–13:00</div><div class="label">Code / đọc doc / ôn IELTS <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">13:30–16:30</div><div class="label">Làm project / luyện code <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">16:30–16:45</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">17:00–18:00</div><div class="label">Thổi sáo <span class="badge b-flute">Thổi sáo</span></div></div>
+      <div class="slot"><div class="time">18:00–21:00</div><div class="label">IELTS tự học <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">21:00–22:00</div><div class="label">Xem phim / chill <span class="badge b-chill">Chill</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+
+    <!-- Thứ 6 -->
+    <article class="day"><header><h2>Thứ 6</h2></header><div class="content">
+      <div class="slot"><div class="time">06:00–06:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">06:15–06:45</div><div class="label">Ăn sáng <span class="badge b-lunch">Ăn</span></div></div>
+      <div class="slot"><div class="time">06:45–10:30</div><div class="label">Học ở trường <span class="badge b-school">Trường</span></div></div>
+      <div class="slot"><div class="time">10:30–10:45</div><div class="label">Về nhà <span class="badge b-commute">Di chuyển</span></div></div>
+      <div class="slot"><div class="time">10:45–11:30</div><div class="label">Ăn + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">11:30–12:30</div><div class="label">Project nhẹ / ôn code <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">13:30–16:30</div><div class="label">Làm project <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">16:30–16:45</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">17:00–18:00</div><div class="label">Thổi sáo <span class="badge b-flute">Thổi sáo</span></div></div>
+      <div class="slot"><div class="time">18:00–21:00</div><div class="label">IELTS (full test thử) <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">21:00–22:00</div><div class="label">Chill <span class="badge b-chill">Chill</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+
+    <!-- Thứ 7 -->
+    <article class="day"><header><h2>Thứ 7</h2></header><div class="content">
+      <div class="slot"><div class="time">07:00–07:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">07:15–09:30</div><div class="label">Làm project chính <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">09:30–11:30</div><div class="label">IELTS speaking/writing <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">11:30–12:15</div><div class="label">Ăn + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">12:15–13:00</div><div class="label">IELTS reading / vocab <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">13:30–17:00</div><div class="label">Làm project <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">17:00–17:15</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">18:00–21:00</div><div class="label">IELTS online <span class="badge b-ielts">IELTS</span></div></div>
+      <div class="slot"><div class="time">21:00–22:00</div><div class="label">Xem phim / relax <span class="badge b-chill">Chill</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+
+    <!-- Chủ nhật -->
+    <article class="day"><header><h2>Chủ nhật</h2></header><div class="content">
+      <div class="slot"><div class="time">07:00–07:15</div><div class="label">Vệ sinh cá nhân <span class="badge b-lunch">Routine</span></div></div>
+      <div class="slot"><div class="time">07:15–09:30</div><div class="label">Project / hackathon cá nhân <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">09:30–11:30</div><div class="label">Luyện thuật toán / ôn tuần <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">11:30–12:15</div><div class="label">Ăn + nghỉ (45p) <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">12:15–13:00</div><div class="label">Chuẩn bị note/plan tuần mới <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">13:30–15:30</div><div class="label">Học thổi sáo <span class="badge b-flute">Thổi sáo</span></div></div>
+      <div class="slot"><div class="time">15:30–15:45</div><div class="label">Thể dục <span class="badge b-workout">Thể dục</span></div></div>
+      <div class="slot"><div class="time">16:00–18:00</div><div class="label">Code + review tuần <span class="badge b-project">Project / Code</span></div></div>
+      <div class="slot"><div class="time">18:00–19:00</div><div class="label">Ăn tối / nghỉ <span class="badge b-lunch">Ăn & Nghỉ</span></div></div>
+      <div class="slot"><div class="time">19:00–20:00</div><div class="label">Xem phim / relax (ngắn) <span class="badge b-chill">Chill</span></div></div>
+      <div class="slot"><div class="time">22:00–23:00</div><div class="label">Chuẩn bị đi ngủ / đọc sách nhẹ <span class="badge b-lunch">Routine</span></div></div>
+    </div></article>
+  </section>
+
+  <footer>
+    <div class="actions">
+      <button onclick="window.print()">🖨️ In / Lưu PDF</button>
+      <button onclick="toggleTimes()">⏱️ Ẩn/Hiện cột thời gian</button>
+    </div>
+    <p style="margin-top:10px">Tip: có thể sửa nội dung trực tiếp trong file HTML này nếu muốn custom.</p>
+  </footer>
+
+  <script>
+    function toggleTimes(){
+      document.querySelectorAll('.time').forEach(el=>{
+        el.style.display = (el.style.display==='none') ? '' : 'none';
+      })
+    }
+
+    // Highlight ngày hiện tại
+    const days = ["Chủ nhật","Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7"];
+    const today = new Date().getDay(); // 0=CN,1=T2,...
+    document.querySelectorAll('.day').forEach(d=>{
+      const title = d.querySelector('h2').innerText.trim();
+      if(title===days[today]){ d.classList.add('highlight'); }
+    });
+  </script>
+</body>
+</html>
